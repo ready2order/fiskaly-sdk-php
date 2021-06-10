@@ -55,8 +55,8 @@ class FiskalyClient
             $response = null;
             $this->json_rpc->query($method, $params, $response)->send();
             return $response;
-        } catch (Exception | HttpException | TypeError $e) {
-            throw new Exception($e->getMessage());
+        } catch (Exception | HttpException $e) {
+            throw new Exception($e->getMessage(), 0, $e);
         }
     }
 
